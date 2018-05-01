@@ -14,13 +14,14 @@
                     $('#fullpage').fullpage({
                         verticalCentered: true,
                         sectionsColor: ['#1bbc9b', '#4BBFC3', 'rgba(107, 98, 79, 0.78)'],
-
+                        anchors: ['Home', 'Travel', 'Contact'],
+				        menu: '#menu',
+                        controlArrows: false,
+				    
                         afterRender: function(){
                             //playing the video
                             $('video').get(0).play();
                         }
-
-
                     });
          
                      $('#fullpage').on('wheel', function(event) {
@@ -50,7 +51,6 @@
     </script>
 
     <style>
-
         body {
             text-align: center;
             font-family: 'Inconsolata', 'sans-serif';
@@ -117,7 +117,6 @@
             display: block;
             width: 100%;
             text-align: center;
-            color: aqua;
             letter-spacing: .8px;
             font-weight: bold;
             font-size: 30px;
@@ -129,7 +128,7 @@
             margin: 0 auto;
             padding: 0;
             text-align: center;
-            color: bisque;
+        
         }
         nav li {
             float: left;
@@ -137,7 +136,12 @@
             padding-top: 11.25px;
             display: inline;
         }
-        nav li:hover {
+        
+        #menu a {
+            color: bisque;
+            text-decoration: none;
+        }
+        #menu li.active a {
             color: ghostwhite;
         }
         /*Adding background for the slides */
@@ -172,7 +176,6 @@
             width: 500px;
             margin: 0 auto;
         }   
-
         
         input {
             background: rgb(169, 218, 191);
@@ -220,8 +223,6 @@
             border-top: none;
         }
         
-/*MEDIA QUERY FOR MOBILE DEVICES http://codepen.io/matmarsiglio/pen/HLIor/*/
-
 
     </style>
 </head>
@@ -229,10 +230,10 @@
 <body id="container">
     
     <nav id="header">
-        <ul>
-            <li>Hobbies</li>
-            <li>Travel</li>
-            <li>Contact</li>
+        <ul id ="menu">
+            <li data-menuanchor="Home" class="active"><a href="#Home">Home</a></li>
+            <li data-menuanchor="Travel"><a href="#Travel">Travel</a></li>
+            <li data-menuanchor="Contact"><a href="#Contact">Contact</a></li>
         </ul>
     </nav>
     
